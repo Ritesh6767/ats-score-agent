@@ -257,11 +257,11 @@ c1, c2 = st.columns([2, 3])
 with c1:
     st.markdown('<div class="card-label">🤖 Model</div>', unsafe_allow_html=True)
     model_choice = st.selectbox("", [
-        "mistralai/Mistral-7B-Instruct-v0.3",
-        "mistralai/Mixtral-8x7B-Instruct-v0.1",
-        "HuggingFaceH4/zephyr-7b-beta",
-        "microsoft/Phi-3-mini-4k-instruct",
+        "meta-llama/Llama-3.1-8B-Instruct",
+        "Qwen/Qwen2.5-7B-Instruct-1M",
         "google/gemma-2-2b-it",
+        "Qwen/Qwen3-4B-Thinking-2507",
+        "mistralai/Mistral-7B-Instruct-v0.3",
     ], label_visibility="collapsed")
 with c2:
     st.markdown('<div style="height:22px"></div>', unsafe_allow_html=True)
