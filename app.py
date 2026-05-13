@@ -99,10 +99,13 @@ def get_hf_token() -> str:
 
 def call_hf(prompt: str, model: str, token: str, max_tokens: int = 1400) -> str:
     client = InferenceClient(token=token)
-    return client.text_generation(
-        prompt, model=model, max_new_tokens=max_tokens,
-        temperature=0.1, repetition_penalty=1.1, do_sample=False,
+    response = client.chat_completion(
+        messages=[{"role": "user", "content": prompt}],
+        model=model,
+        max_tokens=max_tokens,
+        temperature=0.1,
     )
+    return response.choices[0].message.content
 
 def extract_json_obj(text: str) -> dict:
     m = re.search(r'\{[\s\S]*\}', text)
